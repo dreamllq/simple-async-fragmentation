@@ -1,6 +1,6 @@
 {
-  "name": "vite-vue3-ts-component-template",
-  "description": "模板",
+  "name": "simple-async-fragmentation",
+  "description": "批量异步方法分片",
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/index.umd.cjs",
@@ -20,7 +20,7 @@
     "dev": "npm run docs:dev",
     "build": "vite build && vue-tsc -p tsconfig-build.json",
     "preview": "vite preview",
-    "postversion": "git push && git push --tags && npm run docs:build && npm run build && npm publish --registry=https://registry.npmjs.org/",
+    "postversion": "git push && git push --tags && npm run build && npm publish --registry=https://registry.npmjs.org/",
     "test": "jest",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -48,6 +48,7 @@
     "postcss-scss": "^4.0.6",
     "rxjs": "^7.8.1",
     "sass": "^1.62.1",
+    "simple-deferred2": "^1.0.4",
     "stylelint": "^15.2.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^30.0.1",
@@ -62,7 +63,8 @@
     "vue-tsc": "^1.4.2"
   },
   "peerDependencies": {
-    "vue": "3.x"
+    "lodash": "*",
+    "simple-deferred2": "*"
   },
   "author": {
     "name": "lvliqi",
@@ -71,10 +73,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/dreamllq/simple-async-fragmentation.git"
   },
   "keywords": [
-    "vue",
-    "vue3"
+    "async-fragmentation",
+    "fragmentation",
+    "batch",
+    "async"
   ]
 }

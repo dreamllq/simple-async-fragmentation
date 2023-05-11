@@ -1,22 +1,13 @@
-# simple-async-fragmentation
+// https://jestjs.io/zh-Hans/docs/api
+import asyncFragmentation from '@/index';
 
-对一次任务周期的异步方法进行批处理/分片
-
-## 安装
-
-```
-npm i simple-async-fragmentation
-```
-
-## 使用
-
-### base
-
-```ts
-import asyncFragmentation from 'simple-async-fragmentation';
-
-const handle = async (options) => {
-  // options === [1,2,3] 一次调用
+test('base', async () => {
+  const handle = async (options) => {
+    expect(options).toEqual([
+      1,
+      2,
+      3
+    ]);
     return [
       'a',
       'b',
@@ -31,19 +22,19 @@ const handle = async (options) => {
     asyncFragmentationHandle(2),
     asyncFragmentationHandle(3)
   ]);
-  // result === ['a', 'b', 'c']
-  
-```
 
-### 
+  expect(result).toEqual([
+    'a',
+    'b',
+    'c'
+  ]);
+});
 
-```ts
-import asyncFragmentation from 'simple-async-fragmentation';
-
-let count = 0;
+test('maxCount', async () => {
+  let count = 0;
   const handle = async (options) => {
-    // options===[1,2] 两次
     count++;
+    expect(options).toEqual([1, 2]);
     return ['a', 'b'];
   };
 
@@ -55,6 +46,12 @@ let count = 0;
     asyncFragmentationHandle(1),
     asyncFragmentationHandle(2)
   ]);
-  // count === 2
-  // result === ['a', 'b', 'a', 'b']
-```
+
+  expect(count).toBe(2);
+  expect(result).toEqual([
+    'a',
+    'b',
+    'a',
+    'b'
+  ]);
+});
