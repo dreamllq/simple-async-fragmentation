@@ -1,7 +1,7 @@
 {
   "name": "simple-async-fragmentation",
   "description": "批量异步方法分片",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.umd.cjs",
   "module": "./dist/index.js",
